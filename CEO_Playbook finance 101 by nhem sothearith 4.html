@@ -1,0 +1,1385 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The CEO Playbook: Finance 101 by Nhem Sothearith</title>
+
+    <style>
+        :root {
+            --bg: #0b0e13;
+            --panel: #151b25;
+            --panel-light: #1c2532;
+            --gold: #e7bd63;
+            --text: #f4f5f7;
+            --muted: #b3bdcb;
+            --border: #303b4b;
+            --green: #91dfb0;
+            --red: #ffaaaa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 14, 19, 0.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .logo {
+            color: var(--gold);
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+            nav a {
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+                nav a:hover {
+                    color: var(--gold);
+                }
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 0 24px 70px;
+        }
+
+        .hero {
+            padding: 90px 0 65px;
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 76px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin: 18px 0 24px;
+        }
+
+            h1 span {
+                color: var(--gold);
+            }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 800px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 18px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            background: var(--gold);
+            color: #15120a;
+            font: inherit;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+            .button:hover {
+                opacity: 0.88;
+                transform: translateY(-2px);
+            }
+
+            .button.secondary {
+                background: transparent;
+                color: var(--text);
+                border-color: var(--border);
+            }
+
+        .overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 10px 0 65px;
+        }
+
+        .overview-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+            .overview-card strong {
+                display: block;
+                color: var(--gold);
+                font-size: 20px;
+            }
+
+            .overview-card span {
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+        .section-intro {
+            margin: 65px 0 25px;
+            scroll-margin-top: 100px;
+        }
+
+            .section-intro h2 {
+                font-size: clamp(28px, 4vw, 42px);
+                line-height: 1.2;
+                margin: 8px 0;
+            }
+
+            .section-intro p {
+                color: var(--muted);
+                margin-top: 8px;
+            }
+
+        .pillar {
+            margin: 30px 0;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            scroll-margin-top: 95px;
+        }
+
+        .pillar-header {
+            padding: 25px 28px;
+            background: var(--panel-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pillar-number {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .pillar-header h2 {
+            font-size: clamp(25px, 4vw, 36px);
+            margin-top: 5px;
+        }
+
+        .pillar-content {
+            padding: 28px;
+        }
+
+            .pillar-content > p {
+                color: #dce2ea;
+                margin-bottom: 18px;
+            }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .info-card {
+            background: var(--panel-light);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 20px;
+            min-width: 0;
+        }
+
+            .info-card h3 {
+                color: var(--gold);
+                font-size: 19px;
+                margin-bottom: 10px;
+            }
+
+            .info-card p {
+                color: #dce2ea;
+                margin-bottom: 10px;
+            }
+
+                .info-card p:last-child {
+                    margin-bottom: 0;
+                }
+
+        .subheading {
+            color: var(--gold);
+            font-size: 21px;
+            margin: 26px 0 12px;
+        }
+
+        .rule {
+            margin-top: 20px;
+            padding: 18px 20px;
+            background: #211e16;
+            border-left: 4px solid var(--gold);
+            border-radius: 0 9px 9px 0;
+        }
+
+            .rule strong {
+                color: var(--gold);
+                display: block;
+                margin-bottom: 5px;
+            }
+
+        .formula {
+            text-align: center;
+            margin: 18px 0;
+            padding: 15px;
+            background: #0d121a;
+            border: 1px dashed #586578;
+            border-radius: 9px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .quiz {
+            margin-top: 28px;
+            padding: 23px;
+            background: #19180f;
+            border: 1px solid #51452b;
+            border-radius: 12px;
+        }
+
+            .quiz h3 {
+                color: var(--gold);
+                font-size: 21px;
+            }
+
+        .quiz-description {
+            color: var(--muted);
+            margin: 5px 0 18px;
+            font-size: 14px;
+        }
+
+        .question {
+            padding: 17px 0;
+            border-top: 1px solid #3c3627;
+        }
+
+            .question p {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 8px 0;
+            color: #dce2ea;
+            cursor: pointer;
+        }
+
+            .option input {
+                margin-top: 7px;
+                accent-color: var(--gold);
+                flex-shrink: 0;
+            }
+
+        .quiz-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .result {
+            color: var(--muted);
+            font-weight: bold;
+        }
+
+            .result.correct {
+                color: var(--green);
+            }
+
+            .result.incorrect {
+                color: var(--red);
+            }
+
+        .closing {
+            margin-top: 75px;
+            padding: clamp(25px, 5vw, 50px);
+            background: linear-gradient(135deg, #272113, #151b25);
+            border: 1px solid #80652e;
+            border-radius: 16px;
+        }
+
+            .closing h2 {
+                color: var(--gold);
+                margin: 10px 0 20px;
+                font-size: clamp(25px, 4vw, 36px);
+            }
+
+            .closing blockquote {
+                font-size: clamp(18px, 2.5vw, 25px);
+                font-weight: 600;
+                line-height: 1.7;
+            }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+            footer strong {
+                color: var(--gold);
+            }
+
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .content-grid,
+            .overview {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar-header,
+            .pillar-content {
+                padding: 20px;
+            }
+
+            .quiz {
+                padding: 17px;
+            }
+
+            nav {
+                gap: 10px 14px;
+            }
+        }
+
+        /* ===== FULL PIXEL TEXT THEME ===== */
+
+        * {
+            font-family: "Press Start 2P", monospace !important;
+        }
+
+        /* Improve readability with the pixel font */
+        body {
+            font-size: 10px;
+            line-height: 2;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        h3 {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        p,
+        li,
+        a,
+        button,
+        input,
+        textarea,
+        select,
+        label {
+            font-size: 10px;
+            line-height: 2;
+        }
+
+        button {
+            padding: 12px 16px;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                font-size: 8px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 10px;
+            }
+
+            p,
+            li,
+            a,
+            button,
+            input,
+            textarea,
+            select,
+            label {
+                font-size: 8px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <header>
+        <div class="navbar">
+            <a class="logo" href="#home">THE CEO PLAYBOOK</a>
+
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#cash-flow">Cash Flow</a>
+                <a href="#profit">Profit</a>
+                <a href="#equity">Equity</a>
+                <a href="#assets">Assets</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#quizzes">Quizzes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+
+        <!-- HOME SECTION -->
+
+        <section class="hero">
+            <div class="eyebrow">Finance 101 · By Nhem Sothearith</div>
+
+            <h1>
+                The CEO Playbook:<br>
+                <span>Finance 101</span>
+            </h1>
+
+            <p>
+                Welcome! To the ultimate playbook for the future bosses.
+                You do not need to be an adult to start thinking like a
+                millionaire executive! This website breaks down the complex
+                world of corporate money into simple, real-world rules.
+                Explore our pages to learn how CEOs manage cash, attract
+                investors, and build massive companies from scratch.
+            </p>
+
+            <div class="button-row">
+                <a class="button" href="#cash-flow">Start Learning</a>
+                <a class="button secondary" href="#about">About This Website</a>
+            </div>
+        </section>
+
+        <section class="overview">
+            <div class="overview-card">
+                <strong>5 Pillars</strong>
+                <span>Essential business fundamentals</span>
+            </div>
+
+            <div class="overview-card">
+                <strong>5 Quizzes</strong>
+                <span>Test your understanding</span>
+            </div>
+
+            <div class="overview-card">
+                <strong>Real Examples</strong>
+                <span>Learn with simple explanations</span>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+
+        <section class="section-intro" id="about">
+            <div class="eyebrow">About This Website</div>
+            <h2>What Is The CEO Playbook?</h2>
+
+            <p>
+                The CEO Playbook: Finance 101 by Nhem Sothearith is an
+                educational website designed to introduce students and
+                future business leaders to the fundamentals of business,
+                finance, leadership, and decision-making.
+            </p>
+
+            <p>
+                The website explains important business concepts using
+                simple language and practical examples. Visitors can learn
+                how businesses manage cash, understand profit, attract
+                investors, evaluate assets and liabilities, and lead teams.
+            </p>
+
+            <p>
+                The five learning topics are Cash Flow &amp; Capital,
+                Profit vs Revenue, Equity &amp; Investors,
+                Assets vs Liabilities, and Leadership &amp; Decision-Making.
+            </p>
+
+            <p>
+                The goal is to make business fundamentals easier to
+                understand and encourage young people to develop their
+                financial knowledge, critical thinking, and leadership skills.
+            </p>
+        </section>
+
+        <section class="section-intro">
+            <div class="eyebrow">The Fundamentals</div>
+            <h2>Learn How Business Works</h2>
+            <p>
+                Explore each pillar to understand the financial and
+                leadership skills that help businesses operate and grow.
+            </p>
+        </section>
+
+        <!-- PILLAR 1: CASH FLOW AND CAPITAL -->
+
+        <section class="pillar" id="cash-flow">
+            <div class="pillar-header">
+                <div class="pillar-number">PILLAR 01</div>
+                <h2>Cash Flow &amp; Capital</h2>
+            </div>
+
+            <div class="pillar-content">
+                <div class="content-grid">
+
+                    <article class="info-card">
+                        <h3>What Is Capital?</h3>
+                        <p>
+                            Capital is the initial bucket of money that you need
+                            to start a business. You use capital to buy your first
+                            laptops, rent an office, or hire your first team members.
+                        </p>
+                        <p>
+                            Without capital, a company cannot easily be launched.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>What Is Cash Flow?</h3>
+                        <p>
+                            Cash flow is the movement of money into and out of
+                            your business every single day.
+                        </p>
+                        <p>
+                            <strong>Inflow:</strong> Money coming into your company,
+                            such as customers buying your product.
+                        </p>
+                        <p>
+                            <strong>Outflow:</strong> Money leaving your company,
+                            such as paying rent or electricity bills.
+                        </p>
+                    </article>
+
+                </div>
+
+                <div class="rule">
+                    <strong>The Golden CEO Rule</strong>
+                    <p>
+                        A CEO should monitor how much money flows in and out.
+                        If the business spends more cash than it receives for
+                        too long, it may run out of cash and struggle to pay
+                        its bills.
+                    </p>
+                </div>
+
+                <div class="quiz" id="quiz1">
+                    <h3>Quiz 1: Cash Flow &amp; Capital</h3>
+                    <p class="quiz-description">
+                        Answer both questions to test your understanding.
+                    </p>
+
+                    <div class="question">
+                        <p>1. What is capital mainly used for?</p>
+
+                        <label class="option">
+                            <input type="radio" name="q1a" value="a">
+                            Starting and running a business
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q1a" value="b">
+                            Counting social media followers
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q1a" value="c">
+                            Avoiding business expenses
+                        </label>
+                    </div>
+
+                    <div class="question">
+                        <p>2. A customer pays your company $50. This is:</p>
+
+                        <label class="option">
+                            <input type="radio" name="q1b" value="a">
+                            An outflow
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q1b" value="b">
+                            An inflow
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q1b" value="c">
+                            A liability
+                        </label>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="button" onclick="checkQuiz(1, ['a','b'])">
+                            Check Answers
+                        </button>
+                        <span class="result" id="result1" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PILLAR 2: PROFIT VS REVENUE -->
+
+        <section class="pillar" id="profit">
+            <div class="pillar-header">
+                <div class="pillar-number">PILLAR 02</div>
+                <h2>Profit vs Revenue</h2>
+            </div>
+
+            <div class="pillar-content">
+                <h3 class="subheading">The Big Confusion</h3>
+
+                <p>
+                    Many people think that making a lot of sales means
+                    making a lot of money. This is a huge mistake.
+                    Successful business leaders know the difference between
+                    revenue and profit.
+                </p>
+
+                <div class="content-grid">
+                    <article class="info-card">
+                        <h3>What Is Revenue?</h3>
+                        <p>
+                            Revenue is the total money your company takes in
+                            from sales before subtracting costs.
+                        </p>
+                        <p>
+                            <strong>Example:</strong> If your company sells
+                            100 T-shirts for $10 each, your revenue is $1,000.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>What Is Profit?</h3>
+                        <p>
+                            Profit is the money left after paying all your
+                            business costs.
+                        </p>
+                        <p>
+                            <strong>Example:</strong> If the T-shirts, shipping,
+                            and packaging cost $600, subtract that amount
+                            from your revenue.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="formula">
+                    Revenue − Costs = Profit<br>
+                    $1,000 − $600 = $400
+                </div>
+
+                <div class="rule">
+                    <strong>The CEO Lesson</strong>
+                    <p>
+                        Revenue is just a vanity number, and profit is sanity.
+                        You can make millions in revenue, but if your costs
+                        are higher than your revenue, you make no profit
+                        and your company may fail.
+                    </p>
+                </div>
+
+                <div class="quiz" id="quiz2">
+                    <h3>Quiz 2: Profit vs Revenue</h3>
+                    <p class="quiz-description">
+                        Answer both questions to test your understanding.
+                    </p>
+
+                    <div class="question">
+                        <p>
+                            1. A company sells 100 T-shirts for $10 each.
+                            What is its revenue?
+                        </p>
+
+                        <label class="option">
+                            <input type="radio" name="q2a" value="a">
+                            $100
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q2a" value="b">
+                            $1,000
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q2a" value="c">
+                            $600
+                        </label>
+                    </div>
+
+                    <div class="question">
+                        <p>
+                            2. Revenue is $1,000 and costs are $600.
+                            What is the profit?
+                        </p>
+
+                        <label class="option">
+                            <input type="radio" name="q2b" value="a">
+                            $1,600
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q2b" value="b">
+                            $400
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q2b" value="c">
+                            $600
+                        </label>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="button" onclick="checkQuiz(2, ['b','b'])">
+                            Check Answers
+                        </button>
+                        <span class="result" id="result2" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PILLAR 3: EQUITY AND INVESTORS -->
+
+        <section class="pillar" id="equity">
+            <div class="pillar-header">
+                <div class="pillar-number">PILLAR 03</div>
+                <h2>Equity &amp; Investors</h2>
+            </div>
+
+            <div class="pillar-content">
+                <article class="info-card">
+                    <h3>What Is Equity?</h3>
+                    <p>
+                        Equity means ownership. When you start a company by
+                        yourself, you may own 100% of it. You own all the
+                        pieces of the pie.
+                    </p>
+                </article>
+
+                <h3 class="subheading">Why Do CEOs Sell Equity?</h3>
+
+                <p>
+                    If you want your company to grow fast, you may need
+                    more capital to build offices or buy large amounts
+                    of inventory. If you do not have enough money, you
+                    can ask an investor for help.
+                </p>
+
+                <article class="info-card">
+                    <h3>How It Works</h3>
+
+                    <p>
+                        <strong>Step 1:</strong> An investor gives your
+                        company $50,000 in cash.
+                    </p>
+
+                    <p>
+                        <strong>Step 2:</strong> In return, you give the
+                        investor 20% equity, or ownership, in your company.
+                    </p>
+
+                    <p>
+                        <strong>Step 3:</strong> You own 80% of the company
+                        and the investor owns 20%, assuming these are the
+                        only two owners after the investment.
+                    </p>
+
+                    <div class="formula">
+                        Founder: 80% | Investor: 20%
+                    </div>
+                </article>
+
+                <div class="rule">
+                    <strong>The Billionaire Secret</strong>
+                    <p>
+                        A founder's ownership share may become very valuable
+                        if the company grows significantly. However, growth
+                        is never guaranteed, and selling equity means sharing
+                        ownership of the company.
+                    </p>
+                </div>
+
+                <div class="quiz" id="quiz3">
+                    <h3>Quiz 3: Equity &amp; Investors</h3>
+                    <p class="quiz-description">
+                        Answer both questions to test your understanding.
+                    </p>
+
+                    <div class="question">
+                        <p>1. What does equity mean?</p>
+
+                        <label class="option">
+                            <input type="radio" name="q3a" value="a">
+                            Ownership in a company
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q3a" value="b">
+                            The company's electricity bill
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q3a" value="c">
+                            The number of customers
+                        </label>
+                    </div>
+
+                    <div class="question">
+                        <p>
+                            2. You give an investor 20% equity.
+                            What percentage do you keep?
+                        </p>
+
+                        <label class="option">
+                            <input type="radio" name="q3b" value="a">
+                            20%
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q3b" value="b">
+                            80%
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q3b" value="c">
+                            100%
+                        </label>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="button" onclick="checkQuiz(3, ['a','b'])">
+                            Check Answers
+                        </button>
+                        <span class="result" id="result3" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PILLAR 4: ASSETS AND LIABILITIES -->
+
+        <section class="pillar" id="assets">
+            <div class="pillar-header">
+                <div class="pillar-number">PILLAR 04</div>
+                <h2>Assets vs Liabilities</h2>
+            </div>
+
+            <div class="pillar-content">
+                <p>
+                    Evaluating the true financial health of an enterprise
+                    requires analyzing what the organization owns versus
+                    what it owes.
+                </p>
+
+                <div class="content-grid">
+                    <article class="info-card">
+                        <h3>What Are Assets?</h3>
+                        <p>
+                            Assets are valuable things a company owns or controls,
+                            such as cash, equipment, and inventory. They can help
+                            the business operate and earn money.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>What Are Liabilities?</h3>
+                        <p>
+                            Liabilities are financial obligations or debts
+                            that a business owes, such as loans and unpaid bills.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="formula">
+                    Net Worth = Total Assets − Total Liabilities
+                </div>
+
+                <h3 class="subheading">
+                    Example: Two Students, Two Lemonade Stands
+                </h3>
+
+                <div class="content-grid">
+                    <article class="info-card">
+                        <h3>Student 1</h3>
+
+                        <p><strong>Assets:</strong></p>
+                        <p>$100 cash in the register</p>
+                        <p>$50 worth of lemons and sugar</p>
+                        <p><strong>Total Assets: $150</strong></p>
+
+                        <p><strong>Liabilities:</strong></p>
+                        <p>
+                            $200 borrowed from parents to buy a fancy electronic sign
+                        </p>
+                        <p><strong>Total Liabilities: $200</strong></p>
+
+                        <div class="formula">$150 − $200 = −$50</div>
+
+                        <p>
+                            <strong>Result:</strong> Student 1 has a negative net
+                            worth of $50. The stand looks cool, but its debt is
+                            greater than its assets.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Student 2</h3>
+
+                        <p><strong>Assets:</strong></p>
+                        <p>$80 cash in the register</p>
+                        <p>$20 in wooden signs they made</p>
+                        <p><strong>Total Assets: $100</strong></p>
+
+                        <p><strong>Liabilities:</strong></p>
+                        <p>$0 borrowed because everything was paid for upfront</p>
+                        <p><strong>Total Liabilities: $0</strong></p>
+
+                        <div class="formula">$100 − $0 = $100</div>
+
+                        <p>
+                            <strong>Result:</strong> Student 2 has a positive net
+                            worth of $100. The stand is smaller, but the student
+                            has no debt in this example.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="rule">
+                    <strong>Takeaway for Future CEOs</strong>
+                    <p>
+                        Don't judge a company by its fancy looks! Compare what
+                        a business owns with what it owes. Strong assets and
+                        manageable liabilities can support financial stability.
+                        Debt can be useful, but too much debt can create risk.
+                    </p>
+                </div>
+
+                <div class="quiz" id="quiz4">
+                    <h3>Quiz 4: Assets vs Liabilities</h3>
+                    <p class="quiz-description">
+                        Answer both questions to test your understanding.
+                    </p>
+
+                    <div class="question">
+                        <p>1. Which of these is usually an asset?</p>
+
+                        <label class="option">
+                            <input type="radio" name="q4a" value="a">
+                            A loan the company must repay
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q4a" value="b">
+                            Cash owned by the company
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q4a" value="c">
+                            An unpaid bill
+                        </label>
+                    </div>
+
+                    <div class="question">
+                        <p>
+                            2. A business has $150 in assets and $200 in liabilities.
+                            What is its net worth?
+                        </p>
+
+                        <label class="option">
+                            <input type="radio" name="q4b" value="a">
+                            $350
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q4b" value="b">
+                            $50
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q4b" value="c">
+                            −$50
+                        </label>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="button" onclick="checkQuiz(4, ['b','c'])">
+                            Check Answers
+                        </button>
+                        <span class="result" id="result4" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PILLAR 5: LEADERSHIP AND DECISION-MAKING -->
+
+        <section class="pillar" id="leadership">
+            <div class="pillar-header">
+                <div class="pillar-number">PILLAR 05</div>
+                <h2>Leadership &amp; Decision-Making</h2>
+            </div>
+
+            <div class="pillar-content">
+                <h3 class="subheading">Leading the Business</h3>
+
+                <article class="info-card">
+                    <h3>What Do CEOs Actually Do?</h3>
+
+                    <p>
+                        Leadership and decision-making are important
+                        responsibilities of a CEO. A CEO leads the business,
+                        sets its direction, and makes important decisions.
+                        CEOs also work with experts in areas such as finance,
+                        marketing, operations, and human resources. These
+                        experts provide information and advice that helps
+                        the CEO make informed decisions for the business.
+                    </p>
+
+                    <p>
+                        <a href="https://id-preview--3fd0ce15-8d4c-4ecc-89e8-d190a4358305.lovable.app/references"
+                           target="_blank" rel="noopener noreferrer">
+                            [9] View source in References
+                        </a>
+                    </p>
+                </article>
+
+                <article class="info-card" style="margin-top: 16px;">
+                    <h3>What Makes a CEO a Good Leader?</h3>
+
+                    <p>
+                        Good leadership is not about shouting orders. It is
+                        about giving the team a clear direction, trusting them
+                        to do their part, and taking responsibility when things
+                        go wrong. Great CEOs listen more than they talk, explain
+                        the "why" behind every big move, and celebrate the team's
+                        wins instead of taking all the credit.
+                    </p>
+
+                    <p>
+                        <a href="https://id-preview--3fd0ce15-8d4c-4ecc-89e8-d190a4358305.lovable.app/references"
+                           target="_blank" rel="noopener noreferrer">
+                            [10] View source in References
+                        </a>
+                    </p>
+                </article>
+
+                <h3 class="subheading">
+                    How CEOs Lead Their Teams Toward Success
+                </h3>
+
+                <p>
+                    A CEO steers the company the way a captain steers a ship:
+                    by setting the direction and delegating the details to
+                    the right experts. Finance experts watch the cash,
+                    marketing experts find customers, operations experts
+                    keep things running, and human resources teams take
+                    care of employees.
+                </p>
+
+                <p>
+                    When every expert reports honestly to the CEO, the CEO
+                    can make informed decisions that move the whole
+                    business forward.
+                </p>
+
+                <div class="rule">
+                    <strong>The Leadership Secret</strong>
+                    <p>
+                        A CEO does not need to be the smartest person in every
+                        room — only the one who listens best, decides bravely,
+                        and points everyone at the same goal.
+                    </p>
+                </div>
+
+                <h3 class="subheading">Five Habits of a Great CEO Leader</h3>
+
+                <div class="content-grid">
+                    <article class="info-card">
+                        <h3>01. Listen First</h3>
+                        <p>
+                            Great CEOs hear their team before they speak their
+                            own mind.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>02. Communicate Clearly</h3>
+                        <p>
+                            Everyone should know the goal in one simple sentence.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>03. Decide with Courage</h3>
+                        <p>
+                            A wrong-but-fixed decision can be better than a
+                            decision that is never made. Learn from mistakes
+                            and correct the course when necessary.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>04. Lead by Example</h3>
+                        <p>
+                            The team copies the habits of the boss — good ones
+                            or bad ones. Set a positive example through actions.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>05. Trust the Experts</h3>
+                        <p>
+                            Delegating is not weakness; it is how big companies
+                            use different people's skills to get things done.
+                        </p>
+                    </article>
+                </div>
+
+                <!-- LEADERSHIP QUIZ -->
+
+                <div class="quiz" id="quiz5">
+                    <h3>Quiz 5: Leadership &amp; Decision-Making</h3>
+
+                    <p class="quiz-description">
+                        Answer both questions to test your leadership knowledge.
+                    </p>
+
+                    <div class="question">
+                        <p>1. What is an important responsibility of a CEO?</p>
+
+                        <label class="option">
+                            <input type="radio" name="q5a" value="a">
+                            Making every decision without listening to anyone
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q5a" value="b">
+                            Setting direction and making informed decisions
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q5a" value="c">
+                            Ignoring advice from experts
+                        </label>
+                    </div>
+
+                    <div class="question">
+                        <p>2. Why is delegating important?</p>
+
+                        <label class="option">
+                            <input type="radio" name="q5b" value="a">
+                            It allows experts to contribute their skills
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q5b" value="b">
+                            It removes the need for teamwork
+                        </label>
+
+                        <label class="option">
+                            <input type="radio" name="q5b" value="c">
+                            It means the CEO has no responsibilities
+                        </label>
+                    </div>
+
+                    <div class="quiz-footer">
+                        <button class="button" onclick="checkQuiz(5, ['b','a'])">
+                            Check Answers
+                        </button>
+
+                        <span class="result" id="result5" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ OVERVIEW -->
+
+        <section class="section-intro" id="quizzes">
+            <div class="eyebrow">Knowledge Check</div>
+            <h2>Test Your Business Knowledge</h2>
+
+            <p>
+                Complete the quiz at the end of each pillar to check
+                your understanding of finance, business, and leadership.
+                Each quiz contains two questions and gives you an
+                instant score.
+            </p>
+        </section>
+
+        <!-- FINAL MOTIVATIONAL QUOTE -->
+
+        <section class="closing">
+            <div class="eyebrow">A Message to Future CEOs</div>
+
+            <h2>Build Your Own Future.</h2>
+
+            <blockquote>
+                "Many of today's most accomplished CEOs once stood exactly
+                where you are right now, without institutional advantage or
+                generational wealth, but driven by unyielding discipline,
+                strategic focus, and relentless commitment to outwork every
+                obstacle. Therefore, measure your potential not by the
+                platform you were given, but by the relentless discipline
+                with which you build your own."
+            </blockquote>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p><strong>The CEO Playbook: Finance 101</strong></p>
+        <p>By Nhem Sothearith</p>
+        <p>Business fundamentals for the next generation of leaders.</p>
+    </footer>
+
+    <!-- QUIZ FUNCTIONALITY -->
+
+    <script>
+            function checkQuiz(quizNumber, correctAnswers) {
+              let score = 0;
+              let unanswered = 0;
+
+              correctAnswers.forEach(function(correctAnswer, index) {
+                const questionName =
+                  "q" + quizNumber + String.fromCharCode(97 + index);
+
+                const selectedAnswer = document.querySelector(
+                  'input[name="' + questionName + '"]:checked'
+                );
+
+                if (!selectedAnswer) {
+                  unanswered++;
+                } else if (selectedAnswer.value === correctAnswer) {
+                  score++;
+                }
+              });
+
+              const result = document.getElementById("result" + quizNumber);
+
+              result.className = "result";
+
+              if (unanswered > 0) {
+                result.textContent =
+                  "Please answer all questions before checking your score.";
+
+                result.classList.add("incorrect");
+                return;
+              }
+
+              result.textContent =
+                "Your score: " + score + "/" + correctAnswers.length +
+                (score === correctAnswers.length
+                  ? " — Excellent work!"
+                  : " — Review this section and try again!");
+
+              result.classList.add(
+                score === correctAnswers.length ? "correct" : "incorrect"
+              );
+            }
+    </script>
+
+</body>
+</html>
